@@ -101,8 +101,18 @@ const typeDefs = gql`
     lastName: String!
   }
 
+  type Boat {
+    id: String!
+    year: String
+    make: String
+    model: String
+    price: String
+    personId: String!
+  }
+
   type Query {
     people: [Person]
+    boats: [Boat]
   }
 
   type Mutation {
@@ -114,7 +124,8 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-    people: () => people
+    people: () => people,
+    boats: () => boats
   },
   Mutation: {
     addPerson: (root, args) => {
